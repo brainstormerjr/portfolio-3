@@ -1,5 +1,5 @@
 import { LiaExternalLinkSquareAltSolid } from "react-icons/lia";
-import Chip from "./chip";
+import Chip from "../shared/chip";
 
 export type ExperienceProps = {
   start: string;
