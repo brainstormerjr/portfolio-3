@@ -26,7 +26,7 @@ export default function Projects() {
   }
 
   return (
-    <div>
+    <div className="mb-30">
       {projects.projects.map((p, i) => (
         <ProjectCard
           id={p.id}

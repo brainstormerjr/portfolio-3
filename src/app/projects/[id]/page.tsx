@@ -37,7 +37,7 @@ export default function ProjectDetails() {
   };
 
   return (
-    <div className="mt-128 px-48">
+    <div className="mt-128 mb-30 px-48">
       <div className="absolute top-0 left-0 w-full h-196 -z-30">
         <Image
           className="object-center object-cover mask-b-from-0% mask-b-to-100% -z-20"
