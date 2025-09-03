@@ -3,19 +3,19 @@ import { useState, useEffect } from "react";
 
 import { CodeBlock, solarizedDark } from "react-code-blocks";
 import ExperienceCard from "./experienceCard";
-import { ExperienceProps } from "./experienceCard";
+import { Experience } from "@/app/types";
 
 export default function About() {
   const [workExperiences, setWorkExperiences] = useState<{
-    experiences: ExperienceProps[];
+    experiences: Experience[];
   }>({ experiences: [] });
 
   const [otherExperiences, setOtherExperiences] = useState<{
-    experiences: ExperienceProps[];
+    experiences: Experience[];
   }>({ experiences: [] });
 
   const [education, setEducation] = useState<{
-    education: ExperienceProps[];
+    education: Experience[];
   }>({ education: [] });
 
   const selfIntro = `

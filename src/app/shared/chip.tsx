@@ -1,7 +1,13 @@
 import Image from "next/image";
 import { useIconList } from "./iconListContext";
 
-export default function Chip({ text }: { text: string }) {
+export default function Chip({
+  text,
+  hoverable = true,
+}: {
+  text: string;
+  hoverable?: boolean;
+}) {
   const iconList = useIconList();
   let icon = `${text}.png`;
   if (text === "C#") {
@@ -10,7 +16,14 @@ export default function Chip({ text }: { text: string }) {
   const isIconDefined = icon && iconList.includes(icon);
 
   return (
-    <div className="flex items-center border-1 border-emerald-100 text-emerald-100 w-fit h-10 group-hover:bg-emerald-100 group-hover:text-black transition-all">
+    <div
+      className={`flex items-center border-1 border-emerald-100
+    ${
+      hoverable
+        ? "text-emerald-100 w-fit h-10 group-hover:bg-emerald-100 group-hover:text-black transition-all"
+        : "text-black bg-emerald-100"
+    }`}
+    >
       {isIconDefined ? (
         <div className="w-10 h-10 bg-emerald-100 flex items-center justify-center">
           <div className="relative w-6 h-6">

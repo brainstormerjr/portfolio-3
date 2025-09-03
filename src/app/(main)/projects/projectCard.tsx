@@ -2,17 +2,9 @@ import { useRouter } from "next/navigation";
 
 import { LiaExternalLinkSquareAltSolid } from "react-icons/lia";
 
-import Chip from "../../shared/chip";
+import Chip from "@/app/shared/chip";
 import Image from "next/image";
-
-export type ProjectProps = {
-  id: string;
-  name: string;
-  subtitle: string;
-  tags: string[];
-  image: string;
-  links: { text: string; url: string }[];
-};
+import { Project } from "@/app/types";
 
 export default function ProjectCard({
   id,
@@ -21,7 +13,7 @@ export default function ProjectCard({
   tags,
   image,
   links,
-}: ProjectProps) {
+}: Project) {
   const router = useRouter();
 
   const handleClick = (id: string) => {

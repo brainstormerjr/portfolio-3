@@ -1,16 +1,7 @@
 import { LiaExternalLinkSquareAltSolid } from "react-icons/lia";
 import Chip from "../../shared/chip";
 
-export type ExperienceProps = {
-  start: string;
-  end: string;
-  location: string;
-  role: string;
-  name: string;
-  description: string;
-  tags: string[];
-  link: string;
-};
+import { Experience } from "@/app/types";
 
 export default function ExperienceCard({
   start,
@@ -21,7 +12,7 @@ export default function ExperienceCard({
   description,
   tags,
   link,
-}: ExperienceProps) {
+}: Experience) {
   const handleClick = () => {
     if (link) {
       window.open(link, "_blank");

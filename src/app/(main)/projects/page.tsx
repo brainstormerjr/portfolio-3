@@ -2,10 +2,10 @@
 import { useState, useEffect } from "react";
 
 import ProjectCard from "./projectCard";
-import { ProjectProps } from "./projectCard";
+import { Project } from "@/app/types";
 
 export default function Projects() {
-  const [projects, setProjects] = useState<{ projects: ProjectProps[] }>({
+  const [projects, setProjects] = useState<{ projects: Project[] }>({
     projects: [],
   });
 
