@@ -168,6 +168,7 @@ let harold = [
               name={e.name}
               description={e.description}
               tags={e.tags}
+              link={e.link}
               key={i}
             />
           ))}
@@ -186,6 +187,7 @@ let harold = [
               name={e.name}
               description={e.description}
               tags={e.tags}
+              link={e.link}
               key={i}
             />
           ))}
@@ -204,6 +206,7 @@ let harold = [
               name={e.name}
               description={e.description}
               tags={e.tags}
+              link={e.link}
               key={i}
             />
           ))}

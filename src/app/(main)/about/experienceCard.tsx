@@ -1,5 +1,5 @@
 import { LiaExternalLinkSquareAltSolid } from "react-icons/lia";
-import Chip from "../shared/chip";
+import Chip from "../../shared/chip";
 
 export type ExperienceProps = {
   start: string;
@@ -9,6 +9,7 @@ export type ExperienceProps = {
   name: string;
   description: string;
   tags: string[];
+  link: string;
 };
 
 export default function ExperienceCard({
@@ -19,9 +20,23 @@ export default function ExperienceCard({
   name,
   description,
   tags,
+  link,
 }: ExperienceProps) {
+  const handleClick = () => {
+    if (link) {
+      window.open(link, "_blank");
+    }
+  };
+
   return (
-    <div className="flex hover:bg-glass transition-all border-1 border-transparent hover:border-t-glass-light hover:drop-shadow-lg cursor-pointer p-3 group hover:scale-105 relative">
+    <div
+      className={`flex border-1 border-transparent hover:drop-shadow-lg p-3 relative ${
+        link
+          ? "hover:bg-glass transition-all hover:border-t-glass-light hover:scale-105 group cursor-pointer"
+          : ""
+      }`}
+      onClick={handleClick}
+    >
       <div className="min-w-55">
         <p>{end ? `${start} — ${end}` : start}</p>
         <p>{location ?? ""}</p>
@@ -43,7 +58,9 @@ export default function ExperienceCard({
           ))}
         </div>
       </div>
-      <LiaExternalLinkSquareAltSolid className="size-5 absolute right-3 top-3 group-hover:right-1 group-hover:top-1 transition-all group-hover:text-emerald-200" />
+      {link ? (
+        <LiaExternalLinkSquareAltSolid className="size-5 absolute right-3 top-3 group-hover:right-1 group-hover:top-1 transition-all group-hover:text-emerald-200" />
+      ) : null}
     </div>
   );
 }

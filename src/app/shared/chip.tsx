@@ -1,7 +1,31 @@
+import Image from "next/image";
+import { useIconList } from "./iconListContext";
+
 export default function Chip({ text }: { text: string }) {
+  const iconList = useIconList();
+  let icon = `${text}.png`;
+  if (text === "C#") {
+    icon = icon.replace("#", "Sharp");
+  }
+  const isIconDefined = icon && iconList.includes(icon);
+
   return (
-    <div className="px-2 py-1 border-1 border-emerald-200 text-emerald-200 w-fit h-fit group-hover:bg-emerald-200 group-hover:text-black transition-all">
-      <p>{text}</p>
+    <div className="flex items-center border-1 border-emerald-100 text-emerald-100 w-fit h-10 group-hover:bg-emerald-100 group-hover:text-black transition-all">
+      {isIconDefined ? (
+        <div className="w-10 h-10 bg-emerald-100 flex items-center justify-center">
+          <div className="relative w-6 h-6">
+            <Image
+              className="object-contain object-center"
+              src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/icons/${icon}`}
+              alt={text}
+              fill
+            />
+          </div>
+        </div>
+      ) : null}
+      <div className="px-2">
+        <p className="h-fit">{text}</p>
+      </div>
     </div>
   );
 }
