@@ -17,3 +17,13 @@ export type Project = {
   image: string;
   links: { text: string; url: string }[];
 };
+
+export type Blog = {
+  id: string;
+  title: string;
+  subtitle: string;
+  tags: string[];
+  image: string;
+  date: string;
+  links: { text: string; url: string }[];
+};

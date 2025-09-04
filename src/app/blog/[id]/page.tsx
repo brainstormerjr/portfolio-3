@@ -5,16 +5,16 @@ import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import { FaArrowLeft } from "react-icons/fa6";
 
-import { Project } from "@/app/types";
+import { Blog } from "@/app/types";
 import Chip from "@/app/shared/chip";
 
-export default function ProjectDetails() {
+export default function BlogDetails() {
   const router = useRouter();
   const params = useParams();
   const id = params?.id as string;
 
-  const [project, setProject] = useState<{
-    project: Project;
+  const [blog, setBlog] = useState<{
+    blog: Blog;
     markdown: string;
   }>();
 
@@ -22,18 +22,18 @@ export default function ProjectDetails() {
     fetch(
       `${
         process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:3002"
-      }/projects/${id}`
+      }/blogs/${id}`
     )
       .then((response) => response.json())
-      .then((data) => setProject(data));
+      .then((data) => setBlog(data));
   }, [id]);
 
-  if (!project) {
+  if (!blog) {
     return <div className="text-white">Loading...</div>;
   }
 
   const handleClick = () => {
-    router.push("/projects");
+    router.push("/blog");
   };
 
   return (
@@ -43,8 +43,8 @@ export default function ProjectDetails() {
           className="object-center object-cover mask-b-from-0% mask-b-to-100% -z-20"
           src={`${
             process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:3002"
-          }/projects/images/${project.project.image}`}
-          alt={project.project.name}
+          }/blogs/images/${blog.blog.image}`}
+          alt={blog.blog.title}
           fill
         />
       </div>
@@ -58,24 +58,17 @@ export default function ProjectDetails() {
         <p className="group-hover:text-black transition-all">Back</p>
       </div>
       <h1 className="text-8xl font-black text-center mb-6">
-        {project.project.name}
+        {blog.blog.title}
       </h1>
-      <h2 className="text-2xl font-normal text-center text-emerald-200 mb-12">
-        {project.project.subtitle}
+      <h2 className="text-2xl font-normal text-center text-emerald-200 mb-6">
+        {blog.blog.subtitle}
+      </h2>
+      <h2 className="text-md font-normal text-center text-translucent mb-12">
+        {blog.blog.date}
       </h2>
       <div className="flex gap-3 flex-wrap justify-center mb-12">
-        {project.project.tags.map((tag, i) => (
+        {blog.blog.tags.map((tag, i) => (
           <Chip key={i} text={tag} hoverable={false} />
-        ))}
-      </div>
-      <div className="flex items-center justify-center gap-5 mb-12 flex-wrap">
-        {project.project.links.map((l, i) => (
-          <a href={l.url} target="_blank" key={i} className="group">
-            <div className="w-64 h-12 flex items-center justify-center border-1 border-white relative">
-              <p className="group-hover:text-black transition-all">{l.text}</p>
-              <div className="absolute w-full h-0 group-hover:h-full bg-white -z-10 transition-all"></div>
-            </div>
-          </a>
         ))}
       </div>
       <div className="text-sm font-light">
@@ -95,10 +88,23 @@ export default function ProjectDetails() {
             ),
             p: (props) => <p className="leading-6 mb-5" {...props} />,
             li: (props) => <li className="list-disc list-inside" {...props} />,
+            img: (props) => <img className="w-4/5 mx-auto my-16" {...props} />,
           }}
         >
-          {project.markdown}
+          {blog.markdown}
         </ReactMarkdown>
+        <h1 className="text-4xl font-bold text-emerald-200 mt-8 mb-6 pb-2 border-b-1 border-b-emerald-200">
+          Related Links
+        </h1>
+        <ul>
+          {blog.blog.links.map((l, i) => (
+            <li key={i} className="list-disc list-inside underline leading-6">
+              <a href={l.url} target="_blank">
+                {l.text}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

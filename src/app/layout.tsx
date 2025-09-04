@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <IconListProvider>
-          <div className="max-h-full overflow-y-scroll">
+          <div className="max-h-full overflow-y-scroll relative">
             <div className="max-w-350 mx-auto">{children}</div>
           </div>
         </IconListProvider>

@@ -17,15 +17,15 @@ export default function Chip({
 
   return (
     <div
-      className={`flex items-center border-1 border-emerald-100
+      className={`w-fit h-10 flex items-center border-1 border-emerald-200
     ${
       hoverable
-        ? "text-emerald-100 w-fit h-10 group-hover:bg-emerald-100 group-hover:text-black transition-all"
+        ? "text-emerald-100 group-hover/card:bg-emerald-200 group-hover/card:text-black transition-all"
         : "text-black bg-emerald-100"
     }`}
     >
       {isIconDefined ? (
-        <div className="w-10 h-10 bg-emerald-100 flex items-center justify-center">
+        <div className="w-10 h-10 bg-emerald-200 flex items-center justify-center">
           <div className="relative w-6 h-6">
             <Image
               className="object-contain object-center"
@@ -37,7 +37,7 @@ export default function Chip({
         </div>
       ) : null}
       <div className="px-2">
-        <p className="h-fit">{text}</p>
+        <p className="h-fit font-light">{text}</p>
       </div>
     </div>
   );
