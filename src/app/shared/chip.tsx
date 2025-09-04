@@ -20,8 +20,8 @@ export default function Chip({
       className={`w-fit h-10 flex items-center border-1 border-emerald-200
     ${
       hoverable
-        ? "text-emerald-100 group-hover/card:bg-emerald-200 group-hover/card:text-black transition-all"
-        : "text-black bg-emerald-100"
+        ? "text-emerald-200 group-hover/card:bg-emerald-200 group-hover/card:text-black transition-all"
+        : "text-black bg-emerald-200"
     }`}
     >
       {isIconDefined ? (

@@ -23,7 +23,7 @@ export default function ExperienceCard({
     <div
       className={`flex border-1 border-transparent hover:drop-shadow-lg p-3 relative ${
         link
-          ? "hover:bg-glass transition-all hover:border-t-glass-light hover:scale-105 group cursor-pointer"
+          ? "hover:bg-glass transition-all hover:border-t-glass-light hover:scale-105 group/card cursor-pointer"
           : ""
       }`}
       onClick={handleClick}
@@ -34,12 +34,12 @@ export default function ExperienceCard({
       </div>
       <div>
         <p>
-          <span className="font-normal text-white group-hover:text-emerald-200 transition-all">
+          <span className="font-normal text-white group-hover/card:text-emerald-200 transition-all">
             {role ?? ""}
           </span>{" "}
           {role ? "@" : ""}
         </p>
-        <p className="font-normal text-white group-hover:text-emerald-200 transition-all mb-3">
+        <p className="font-normal text-white group-hover/card:text-emerald-200 transition-all mb-3">
           {name}
         </p>
         <p className="mb-3">{description}</p>
@@ -50,7 +50,7 @@ export default function ExperienceCard({
         </div>
       </div>
       {link ? (
-        <LiaExternalLinkSquareAltSolid className="size-5 absolute right-3 top-3 group-hover:right-1 group-hover:top-1 transition-all group-hover:text-emerald-200" />
+        <LiaExternalLinkSquareAltSolid className="size-5 absolute right-3 top-3 group-hover/card:right-1 group-hover:top-1 transition-all group-hover/card:text-emerald-200" />
       ) : null}
     </div>
   );
