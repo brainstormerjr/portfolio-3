@@ -93,9 +93,11 @@ export default function BlogDetails() {
         >
           {blog.markdown}
         </ReactMarkdown>
-        <h1 className="text-4xl font-bold text-emerald-200 mt-8 mb-6 pb-2 border-b-1 border-b-emerald-200">
-          Related Links
-        </h1>
+        {blog.blog.links.length ? (
+          <h1 className="text-4xl font-bold text-emerald-200 mt-8 mb-6 pb-2 border-b-1 border-b-emerald-200">
+            Related Links
+          </h1>
+        ) : null}
         <ul>
           {blog.blog.links.map((l, i) => (
             <li key={i} className="list-disc list-inside underline leading-6">
