@@ -1,8 +1,6 @@
 services:
   portfolio-3:
     image: brainstormerjr/portfolio-3:latest
-    working_dir: /app
-    command: sh -c "npm run start"
     ports:
       - "3000:3000"
     restart: always
