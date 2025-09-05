@@ -22,7 +22,7 @@ export default function BlogCard({
 
   return (
     <div
-      className="w-full flex gap-5 hover:bg-glass transition-all border-1 border-transparent hover:border-t-glass-light hover:drop-shadow-lg cursor-pointer p-3 group hover:scale-105 relative"
+      className="w-full flex gap-5 hover:bg-glass transition-all border-1 border-transparent hover:border-t-glass-light hover:drop-shadow-lg cursor-pointer p-3 group/card hover:scale-105 relative"
       onClick={(e) => {
         handleClick(id);
         e.stopPropagation();
@@ -40,7 +40,7 @@ export default function BlogCard({
       </div>
       <div>
         <p className="mb-3">{date}</p>
-        <p className="font-normal text-white group-hover:text-emerald-200 transition-all mb-3">
+        <p className="font-normal text-white group-hover/card:text-emerald-200 transition-all mb-3">
           {title}
         </p>
         <p className="mb-3">{subtitle}</p>
@@ -50,7 +50,7 @@ export default function BlogCard({
           ))}
         </div>
       </div>
-      <LiaExternalLinkSquareAltSolid className="size-5 absolute right-3 top-3 group-hover:right-1 group-hover:top-1 transition-all group-hover:text-emerald-200" />
+      <LiaExternalLinkSquareAltSolid className="size-5 absolute right-3 top-3 group-hover/card:right-1 group-hover/card:top-1 transition-all group-hover/card:text-emerald-200" />
     </div>
   );
 }

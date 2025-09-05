@@ -25,16 +25,38 @@ export default function RootLayout({
           <Buttons />
         </div>
 
-        <div className="mt-auto flex gap-6 mb-24">
-          <a href="https://github.com/brainstormerjr" target="_blank">
-            <FaGithub className="size-7 opacity-50 hover:opacity-100 transition-all cursor-pointer" />
-          </a>
-          <a href="https://www.linkedin.com/in/harold-kwan/" target="_blank">
-            <FaLinkedin className="size-7 opacity-50 hover:opacity-100 transition-all cursor-pointer" />
-          </a>
-          <a href="mailto:haroldkwan@me.com">
-            <MdEmail className="size-7 opacity-50 hover:opacity-100 transition-all cursor-pointer" />
-          </a>
+        <div>
+          <div className="mt-auto flex gap-6 mb-8">
+            <a href="https://github.com/brainstormerjr" target="_blank">
+              <FaGithub className="size-7 opacity-50 hover:opacity-100 transition-all cursor-pointer" />
+            </a>
+            <a href="https://www.linkedin.com/in/harold-kwan/" target="_blank">
+              <FaLinkedin className="size-7 opacity-50 hover:opacity-100 transition-all cursor-pointer" />
+            </a>
+            <a href="mailto:haroldkwan@me.com">
+              <MdEmail className="size-7 opacity-50 hover:opacity-100 transition-all cursor-pointer" />
+            </a>
+          </div>
+          <p className="text-xs text-translucent font-light">
+            This site runs on Next.js, Tailwind, and an Express backend. You can
+            see the source code for both the{" "}
+            <a
+              className="underline font-normal"
+              href="https://github.com/brainstormerjr/portfolio-3"
+              target="_blank"
+            >
+              frontend
+            </a>{" "}
+            and{" "}
+            <a
+              className="underline font-normal"
+              href="https://github.com/brainstormerjr/portfolio-3-backend"
+              target="_blank"
+            >
+              backend
+            </a>{" "}
+            on GitHub.
+          </p>
         </div>
       </div>
 
