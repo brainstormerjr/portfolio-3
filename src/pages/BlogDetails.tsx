@@ -58,7 +58,7 @@ export default function BlogDetails() {
       </div>
 
       <div
-        className="w-fit px-4 py-2 flex items-center gap-3 cursor-pointer border-1 border-white mb-8 md:mb-12 relative group"
+        className="w-fit px-4 py-2 flex items-center gap-3 cursor-pointer border border-white mb-8 md:mb-12 relative group"
         onClick={handleClick}
       >
         <div className="absolute left-0 w-full h-0 group-hover:h-full bg-white -z-10 transition-all"></div>
@@ -84,25 +84,28 @@ export default function BlogDetails() {
           components={{
             h1: (props) => (
               <h1
-                className="text-4xl font-bold text-emerald-200 mt-8 mb-6 pb-2 border-b-1 border-b-emerald-200"
+                className="text-4xl font-bold text-emerald-200 mt-8 mb-6 pb-2 border-b border-b-emerald-200"
                 {...props}
               />
             ),
             h2: (props) => (
               <h2
-                className="text-3xl font-semibold text-emerald-200 mt-8 mb-3 pb-2 border-b-1 border-b-emerald-900"
+                className="text-3xl font-semibold text-emerald-200 mt-8 mb-3 pb-2 border-b border-b-emerald-900"
                 {...props}
               />
             ),
             p: (props) => <p className="leading-6 mb-5" {...props} />,
-            li: (props) => <li className="list-disc list-inside" {...props} />,
+            ul: (props) => <ul className="mb-5" {...props} />,
+            li: (props) => (
+              <li className="list-disc list-inside ml-5" {...props} />
+            ),
             img: (props) => <img className="w-4/5 mx-auto my-16" {...props} />,
           }}
         >
           {markdown}
         </ReactMarkdown>
         {blog.links.length ? (
-          <h1 className="text-4xl font-bold text-emerald-200 mt-8 mb-6 pb-2 border-b-1 border-b-emerald-200">
+          <h1 className="text-4xl font-bold text-emerald-200 mt-8 mb-6 pb-2 border-b border-b-emerald-200">
             Related Links
           </h1>
         ) : null}
