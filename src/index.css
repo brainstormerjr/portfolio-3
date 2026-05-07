@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: linear-gradient(0deg, rgba(0, 77, 47, 1) 0%, rgba(0, 20, 41, 1) 100%);
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-translucent: #ffffff88;
+  --color-glass: #ffffff11;
+  --color-glass-light: #ffffff22;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: linear-gradient(0deg, rgba(0, 60, 40, 1) 0%, rgba(0, 20, 41, 1) 100%);
+  color: var(--foreground);
+  height: 100vh;
+  font-family: "Martian Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth"100;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+}
+
+* {
+  scrollbar-color: #ffffff44 transparent;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #ffffff44;
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton {
+  background-color: #ffffff0a;
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #ffffff18 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
