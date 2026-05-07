@@ -8,7 +8,7 @@ interface ChipProps {
 }
 
 export default function Chip({ text, hoverable = true }: ChipProps) {
-  const iconFile = text === "C#" ? "CSharp.png" : `${text}.png`;
+  const iconFile = text === "C#" ? "CSharp.webp" : `${text}.webp`;
   const iconUrl = `${CDN_URL}/icons/${iconFile}`;
 
   const [hasIcon, setHasIcon] = useState(false);
@@ -27,7 +27,7 @@ export default function Chip({ text, hoverable = true }: ChipProps) {
 
   return (
     <div
-      className={`w-fit h-10 flex items-center border-1 border-emerald-200
+      className={`w-fit h-10 flex items-center border border-emerald-200
     ${
       hoverable
         ? "text-emerald-200 group-hover/card:bg-emerald-200 group-hover/card:text-black transition-all"
